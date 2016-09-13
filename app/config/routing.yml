@@ -1,0 +1,16 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+    
+adauga_job:
+    path: /adauga-job
+    defaults:  { _controller: AppBundle:Job:add }
+    
+job_list:
+    path: /jobs
+    defaults:  { _controller: AppBundle:Job:list }
+    
+job_detail:
+    path: /jobs/{id}
+    defaults:  { _controller: AppBundle:Job:detail }
+    

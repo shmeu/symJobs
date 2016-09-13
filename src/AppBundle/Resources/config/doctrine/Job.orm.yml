@@ -1,0 +1,39 @@
+AppBundle\Entity\Job:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\JobRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titluJob:
+            type: string
+            length: 255
+            column: titlu_job
+        descriere:
+            type: text
+        dataPublicarii:
+            type: date
+            column: data_publicarii
+        esteActiv:
+            type: boolean
+            column: este_activ
+#        orasId:
+#            type: integer
+#            column: oras_id
+    lifecycleCallbacks: {  }
+    
+    indexes:
+        dateIndex:
+            columns: [data_publicarii]
+    
+    manyToOne:
+        oras:
+            targetEntity: Oras
+            inversedBy: jobs
+            joinColumn:
+                name: oras_id
+                referencedColumnName: id

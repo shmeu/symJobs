@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Job individual{% endblock %}
+
+{% block body %}
+<pre>
+Listarea unui job individual:
+- URL: /jobs/id, unde id este parametru id-ul jobului. Exemplu URL: http://localhost/jobs/4
+- accesand url-ul de mai sus pot vedea titlul, descrierea si data publicarii jobului cu id-ul din paramentru.
+</pre>
+	
+	
+	<ul>
+		<li><label class="label label-info">Id</label> {{job.id}}</li>
+		<li><label class="label label-info">Titlu job</label> {{job.titluJob}}</li>
+		<li><label class="label label-info">Data Publicarii</label> {{job.dataPublicarii.format('Y/m/d')}}</li>
+		<li><label class="label label-info">Descriere</label> {{job.descriere}}</li>
+		<li><label class="label label-info">Oras</label> {{job.oras.cityName}}</li>
+	</ul>
+	
+{% endblock %}

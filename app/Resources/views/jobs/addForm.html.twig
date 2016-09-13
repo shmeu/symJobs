@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adaugare job{% endblock %}
+
+{% block body %}
+
+<pre>
+- URL: /adauga-job
+- Userul sa completeze formularul si sa specifice daca jobul este activ sau nu. Campul este_activ sa fie un checkbox. Daca este checked atunci jobul este activ. Daca nu este  checked  atunci jobul este inactiv.
+- Orasul sa il pot selectiona dintr-un select dropdown. Aici vei avea nevoie de 3-4 orase de test adaugate dinainte in entitatea Oras.
+- La publicarea corecta a unui Job, un flash message apare de tipul: "Jobul a fost postat corect" si sa te redirectioneze catre ruta de listare joburi(URL: /jobs)
+
+
+Validari formular adaugare
+- Campuri obligatorii: ID, titlu_job, descriere, data_publicarii
+- Camp ne-obligatoriu: este_activ. 
+</pre>
+
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+
+{% endblock %}

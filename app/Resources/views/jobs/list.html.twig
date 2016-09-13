@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listarea joburilor{% endblock %}
+
+{% block body %}
+	
+	<pre>
+	- URL: /jobs
+	- Se vor lista toate joburile active unde data publicarii este in intervalul astazi + 1 luna
+	</pre>
+	{% if app.request.hasPreviousSession %}
+		{% for flashMessage in app.session.flashBag.get('success') %}
+			<div class="flash-notice alert alert-success">
+				{{ flashMessage }}
+			</div>
+		{% endfor %}
+	{% endif %}
+	<table class="table table-hover table-striped">
+	<thead>
+		<tr>
+			<th>Data publicarii</th>
+			<th>Titlu job</th>
+			<th>Oras</th>
+		</tr>
+	</thead>
+	{% for job in jobs %}
+		<tr>
+			<td>{{ job.dataPublicarii.format('Y/m/d') }}</td>
+			<td><a href="{{path('job_detail',{'id':job.id})}}">{{ job.titluJob }}</a></td>
+			<td>{{ job.oras.cityName }}</td>
+		</tr>
+	</div>
+	{% endfor %}
+	</table>
+
+{% endblock %}

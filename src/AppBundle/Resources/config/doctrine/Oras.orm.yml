@@ -1,0 +1,20 @@
+AppBundle\Entity\Oras:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\OrasRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        cityName:
+            type: string
+            length: 255
+            column: city_name
+    lifecycleCallbacks: {  }
+    oneToMany:
+        jobs:
+            targetEntity: Job
+            mappedBy: oras
